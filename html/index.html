@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0901)https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=a17a82213b&attid=0.1&permmsgid=msg-f:1656010016186218281&th=16fb5455f744b729&view=att&disp=inline&realattid=f_k5imy7at0&saddbat=ANGjdJ-O9WNO7T6M7SKLjy-9LylJpCEUW9ms40pKCcvzUBjSpd8jUig-cF3Z2k_YAqIn2KT0mv86WkRPIg20zwDoN9T1egMUdNtBkCZy0BjfmUNpA4QuEYF1O96IH_T_SEWFXZkhQo10ZUGSixtOcweiJNFlW1EG7gX-wYcvpeIMuEh6SMjXX9IzxP8TRZU3fRfKEqEkQfSeRcWspuQ4k26TpZJ1DbUmdEK1IUJtYqWxHeDsliKx6F7k34iH1CX3eFDW4MUCKKDti_st8F54xobIVj54TZxm9nDaOEbTcZNBZlYq30V8pSPWmyvS9vqdq4lyxV1gi1kWvYLJrTkAucnZaP-mgEBmCIh5Bhtf1F1pVj3vK36XVrygNdP2r1-mFHte4jsRQ_0EGTlpx5Yp5FNAD_HiA2GM3owqMoLCIXR8BF2aYdlEHzYG3daHzcJwPk2zThv_lLCye4LAguAspn2VVdP8PIp-l_Lb55zPfv5W0YjGc5ZuB3XmauSmsSNoPfDSYkqZ0ResKlmYm9sldZRP84GmU2RQWyb4oIJZBmqBL47xL1uSZsRyduTyIfMM9AZ5WQOO9rCzitY18epwL__0_s9H4PmefEtuqd3l1bvQZbssLNTT8euh3eBjqRZD_bqxIO0ibAKa6qgIJ8ASvPwJNelDkJgBTtzD1oOdsUoY_3uZI938LvFJCZzBYEo -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body class="vsc-initialized">
+
+
+
+
+<div>
+
+<div>
+  <div>
+    <ul>
+      <li><a href="http://index.html/" target="_blank"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="http://annotated.html/" target="_blank"><span>Classes</span></a></li>
+      <li><a href="http://files.html/" target="_blank"><span>Files</span></a></li>
+    </ul>
+  </div>
+</div>
+<div>
+<h1>Project 1: A* On Terrain Maps</h1>
+<p>
+</p><h3 align="center">0 </h3><h2><a name="0.1_intro_sec">
+Introduction</a></h2>
+You are lost but fortunately you have an A* framework which you can use to find
+your way home.&nbsp;<p>
+In this assignment, you will devise an algorithm for plotting a course
+home, minimizing the total cost of the path and the amount of time
+spent searching.&nbsp;</p><h2><a name="0.1_world_sec">
+The World</a></h2>
+In this assignment, you'll first work with the <a href="http://class_terrain_map.html/" title="A class representing the world, start and end points, and visited squares." target="_blank">TerrainMap</a>
+class, a class encapsulating a two-dimensional world layered on top of
+a rectangular grid. Each point in the world has a height, represented
+by an integer value between 0 and 255. Depending on the selected
+movement type, you can either move to any of the eight squares adjacent
+to your own location (e.g. the four cardinal directions and the
+diagonals) or just the cardinal directions. As you would expect, the
+cost to traverse between tiles is dependent on the differences in
+height between the tiles. Below are different const functions for you
+to experiment with.<p>
+The <a href="http://class_terrain_map.html/" title="A class representing the world, start and end points, and visited squares." target="_blank">TerrainMap</a>
+class also keeps track of which tiles your algorithm visits as it looks
+for an optimal path home. Part of your grade on this assignment will be
+determined by how many tiles your algorithm visited. For example, if
+two different algorithms each yield the optimal path, but one
+accomplishes this task and only considers 10% of the number of squares
+as the other, the algorithm that visited fewer squares would be
+considered superior to the other. Interestingly, many of the better
+search algorithms that visit fewer squares also run in considerably
+less time, so you'll have a dual incentive to keep your search space
+small. Please note that this is still secondary to finding the shortest
+path.</p><h2><a name="0.1_instruct_sec">
+Coding Instructions</a></h2>
+Your assignment is to create an implementation of the <a href="http://interface_a_i_module.html/" title="Base class of all AI implementations." target="_blank">AIModule</a>
+interface that computes a path from the start location to the end
+location while minimizing the total search space. Once you've written
+this function, you can plug it in to the existing starter code by
+compiling your module and specifying it as a command-line parameter to
+the main program. For example, if you've written an AI module called
+PerfectAI, you can see the result by running "java Main PerfectAI".
+This will run your AI, print its score and number of visited squares to
+stdout, and will create a display window showing the terrain, the path
+you've taken, and the squares your AI module visited.<p>
+To help test your implementation, we've provided a working Dijkstra's
+algorithm AI class called DijkstraAI. As you've learned in class,
+Dijkstra's algorithm always yields the optimal path, so you can compare
+your own AI against the DijkstraAI module to see if your path is indeed
+optimal. The starter code is designed such that you can have several
+different AI modules each plot a path over the terrain. You can do this
+by specifying multiple parameters to the main program, as in "java Main
+PerfectAI DijkstraAI". Because you can interface with the starter code
+directly from the command line, you do not need to make any changes to
+the provided starter code.</p><p>
+Your submission for this assignment should consist of a single .java file containing your <a href="http://interface_a_i_module.html/" title="Base class of all AI implementations." target="_blank">AIModule</a>
+implementation, and it will be run using a clean copy of the starter
+code. If you have any extensions to the project that require changes to
+the starter code, please let us know before you begin making changes.</p><h2>Questions</h2>
+<h3><a name="0.1_cost_functions">
+Cost Functions&nbsp;&nbsp; &nbsp;</a></h3>
+<div><pre> <span>// Exponential of the height difference</span>
+ <span>public</span> <span>double</span> getCost(<span>final</span> Point p1, <span>final</span> Point p2)<br> {<br>      <span>return</span> Math.pow(2.0, (getTile(p2) - getTile(p1)));;<br> }<br></pre></div><div><pre> <span>// New height divided by old height</span>
+ <span>public</span> <span>double</span> getCost(<span>final</span> Point p1, <span>final</span> Point p2)<br> {<br>      <span>return</span> getTile(p1) / (getTile(p2) + 1);<br> }<br></pre></div><span style="font-family:monospace"><br></span>You may cut and paste them into <a href="http://_terrain_map_8java.html/" target="_blank">TerrainMap.java</a> over the current getCost function.<h3><a name="0.1_part_1">
+Part 1: Creating Heuristics</a></h3>
+For each cost function above and for each movement type (cardinal neighbors or all eight neighbors), do the following: <br>
+<br> a) Create an admissible heuristic, document the exact form of the
+heuristic and <span style="font-weight:bold">prove</span> it is admissable. (6 points per cost function
+and movement type) <br>
+<br>
+ <em>Submission Requirements: For questions a)&nbsp; submit a detailed writeup.</em><h3><a name="0.1_part_2">
+Part 2: Implementing the Heuristics and A* Algorithm</a></h3>
+<em>For implementation purposes only consider chess (eight option) movement with the built&nbsp; cost functions.</em> <br>
+<br> a) You will now implement your own version of A*. Look at the DirectAI and <a href="http://class_stupid_a_i.html/" title="A sample AI that takes a very suboptimal path." target="_blank">StupidAI</a> classes to get an idea of how to search the state space. (20 points) <br>
+<br>
+ b) To implement the heuristic, write valid java code in the form of: (5 points) <div><pre> <span>private</span> <span>double</span> getHeuristic(<span>final</span> <a href="http://class_terrain_map.html/" title="A class representing the world, start and end points, and visited squares." target="_blank">TerrainMap</a> map, <span>final</span> Point pt1, <span>final</span> Point pt2)<br> {<br>  ...<br> }<br></pre></div><br>
+ <em>Submission
+Requirements: For questions a) and b) submit an java module labeled as
+AStarExp_&lt;your-student-id&gt;.<wbr>java for the first cost function and<br></em><em> AStarDiv_&lt;your-student-id&gt;.<wbr>java </em><em> AStarExp_&lt;your-student-id&gt;.<wbr>java </em><br><em></em><h3><a name="0.1_part_3">
+Part 3: Trying out your Code on a Small Problem</a></h3>
+Try out your heuristic functions with the appropriate cost function on 500x500 maps with random seeds 1, 2, 3, 4 and 5. <br>
+
+    Use the following command to run this part of the assignment: "java Main YourAIModule -seed x" with x being the seeds listed above.
+<br>
+ <em>Submission Requirements: For each execution record the cost of the shortest path and the number of nodes expanded<span style="font-weight:bold"> as per the output of the program.</span><br></em>
+<br>
+ 5 points per cost function for getting the shortest path. Non-optimal paths will get <br>
+ 5 * (shortest path cost) / (your path cost) <br>
+<br>
+ For all students who get the shortest path: we will rank your performance and you shall receive bonus marks of: <br>
+ 5*(Number of Qualified Students + 1 - Your Rank) / (Number of Qualified Students) for each cost function.<h3><a name="0.1_part_4">
+Part 4: Climbing Mount Saint Helens During The Eruption</a></h3>
+Go to <a href="http://tahoe.usgs.gov/viewers.html" target="_blank">http://tahoe.usgs.gov/viewers.<wbr>html</a>
+and download the Dem3D viewer. This will allow you to view the file in
+MtAftDem.zip which is in the old USGS DEM format of the Mount Saint
+Helens after the eruption. <br>
+<br> There are better DEM viewers you could use that allows fly
+throughs etc, but this one works with a standards graphics card and
+will help them understand the terrain you are navigating. <br>
+<br> This is a much larger grid and hence
+you will have to more cleverly implement your algorithm. Modify both your A*
+algorithm and admissible heuristic so as to find the optimal path in
+this new environment<br>in <span style="font-weight:bold">the least possible time.</span>
+&nbsp;You can use any valid technique to improve the performance of the
+algorithm. By this, I mean any clever modification of the base
+algorithm (such as waypoints) but NOT say writing the A* algorithm
+in assembler or memorizing paths etc. If you have any doubts about the
+validity of your approach then first consult me.<br>
+<br>
+ Use the following command to run this part of the assignment: "java Main YourAIModule -load <a href="http://mtaft.xyz/" target="_blank">MTAFT.XYZ</a>".<br>
+<br>
+ <h2>Submission Requirements:</h2> <br>
+
+ a) A clear and concise description of your modified A* and admissible heuristic with proof of admissibility.(10 points) <br>
+<br> b) The implementation of your modified A* and admissible heuristic
+in the files AStarDiv_&lt;your-student-id&gt;.<wbr>java, AStarExp_&lt;your-student-id&gt;, MtStHelensExp_&lt;your-student-<wbr>id&gt;.java, and  MtStHelensDiv_&lt;your-student-<wbr>id&gt;.java (20 points) <br>
+<br>
+ c) The cost of your shortest path, number of nodes expanded, and time to find it for seeds 1,2,3,4,5 for both the AStarDiv and AStarExp.<br>
+<br>
+    d) An authors.txt file with "&amp;lt name &gt;, &amp;lt student id &gt;" without the quotes, "&amp;lt", or "&gt;".
+    <br>
+<br>
+ <b>Note: Your submitted module must work on any map that uses
+chess movement. Be careful not to "overfit" your code to this
+particular file as we'll be testing your code on a slightly
+different&nbsp; version of the MtStHelens data. Your A* algorithm and heuristic must always find the optimal path.</b> </div>
+<hr size="1"><address style="text-align:right"><small>Generated on Tue Apr 14 13:50:25 2009 for Path Finder by&nbsp;
+<a href="http://www.doxygen.org/index.html" target="_blank">
+<img src="http://doxygen.png/" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
+</div><div id="ClearPlayFilterText" style="display:none;"></div><div id="ClearPlayFilterRoot"><!-- react-empty: 1 --></div><div id="ClearPlayFilterStatusBar"></div></body></html>
